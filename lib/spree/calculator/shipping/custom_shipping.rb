@@ -70,6 +70,7 @@ module Spree
               test = 100
             else
               test = 50
+            end
           end
 
           puts 'item.variant.sku'
@@ -84,11 +85,11 @@ module Spree
           puts 'address'
           puts 'address'
 
-          if package.order.address2.include? "pickup: false"
-             return test
-          else
-            return 0
+          if (package.order.address2.include? "pickup: true")
+            test = 0
           end
+
+          return test
 
           # [shipping, prices[compute_index(total_weight)], handling_fee(total_price)].compact.sum
         end
