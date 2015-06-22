@@ -54,13 +54,41 @@ module Spree
           puts @line_items.inspect
           # total_price, total_weight, shipping = compute_total_price, compute_total_weight, 0
 
+          puts 'item.variant.sku'
+          puts 'item.variant.sku'
+          puts 'item.variant.sku'
+          puts 'item.variant.sku'
+          puts 'item.variant.sku'
+          puts 'item.variant.sku'
+          puts 'item.variant.sku'
+          puts 'item.variant.sku'
+
+          test = 0
+
           @line_items.each do |item|
-            puts item.variant.sku
+            if (item.variant.sku.length > 4)
+              test = 100
+            else
+              test = 50
           end
 
-          return 20
+          puts 'item.variant.sku'
+          puts 'item.variant.sku'
+          puts 'item.variant.sku'
+          puts 'item.variant.sku'
+          puts 'item.variant.sku'
 
-          
+          puts 'address'
+          puts 'address'
+          puts package.order.address2
+          puts 'address'
+          puts 'address'
+
+          if package.order.address2.include? "pickup: false"
+             return test
+          else
+            return 0
+          end
 
           # [shipping, prices[compute_index(total_weight)], handling_fee(total_price)].compact.sum
         end
