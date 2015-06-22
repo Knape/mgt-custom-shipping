@@ -3,8 +3,8 @@ module Spree
     module Shipping
       class CustomShipping < Spree::ShippingCalculator
 
-        # preference :weight_table,    :string,  default: '1 2 5 10 20'
-        # preference :price_table,     :string,  default: '6 9 12 15 18'
+        preference :with_frame,        :string,  default: '0'
+        preference :without_frame,     :string,  default: '0'
         # preference :max_item_weight, :decimal, default: 18
         # preference :max_item_width,  :decimal, default: 60
         # preference :max_item_length, :decimal, default: 120
@@ -22,8 +22,6 @@ module Spree
             super
           end
         end
-
-        attr_accessor :line_items
 
         # def item_oversized?(variant)
         #   sizes = [
@@ -49,41 +47,19 @@ module Spree
         # As order_or_line_items we always get line items, as calculable we have
         # Coupon, ShippingMethod or ShippingRate.
         def compute(package)
-          puts package.inspect
-          @line_items ||= package.order.line_items
-          puts @line_items.inspect
-          # total_price, total_weight, shipping = compute_total_price, compute_total_weight, 0
 
-          puts 'item.variant.sku'
-          puts 'item.variant.sku'
-          puts 'item.variant.sku'
-          puts 'item.variant.sku'
-          puts 'item.variant.sku'
-          puts 'item.variant.sku'
-          puts 'item.variant.sku'
-          puts 'item.variant.sku'
+          line_items = package.order.line_items
+          # total_price, total_weight, shipping = compute_total_price, compute_total_weight, 0
 
           test = 0
 
-          @line_items.each do |item|
+          line_items.each do |item|
             if (item.variant.sku.length > 4)
               test = 100
             else
               test = 50
             end
           end
-
-          puts 'item.variant.sku'
-          puts 'item.variant.sku'
-          puts 'item.variant.sku'
-          puts 'item.variant.sku'
-          puts 'item.variant.sku'
-
-          puts 'address'
-          puts 'address'
-          puts package.order.ship_address.address2
-          puts 'address'
-          puts 'address'
 
           if (package.order.ship_address.address2.include? "pickup: true")
             test = 0
