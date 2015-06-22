@@ -6,7 +6,7 @@ require 'mgt_custom_shipping/version'
 
 Gem::Specification.new do |s|
   s.platform     = Gem::Platform::RUBY
-  s.name         = 'spree_postal_service'
+  s.name         = 'mgt_custom_shipping'
   s.version      = MgtCustomShipping.version
   s.summary      = 'Calculate for my guide to'
   s.description  = s.summary
