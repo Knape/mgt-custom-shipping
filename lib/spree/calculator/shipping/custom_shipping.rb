@@ -54,12 +54,13 @@ module Spree
           puts @line_items.inspect
           # total_price, total_weight, shipping = compute_total_price, compute_total_weight, 0
 
+          @line_items.each do |item|
+            puts item.variant.sku
+          end
+
           return 20
 
-          # while total_weight > weights.last # In several packages if need be.
-          #   total_weight -= weights.last
-          #   shipping += prices.last
-          # end
+          
 
           # [shipping, prices[compute_index(total_weight)], handling_fee(total_price)].compact.sum
         end
