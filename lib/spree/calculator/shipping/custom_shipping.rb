@@ -55,9 +55,9 @@ module Spree
 
           line_items.each do |item|
             if (item.variant.sku.length > 4)
-              test = with_frame
+              test = self.preferred_with_frame
             else
-              test = without_frame
+              test = self.preferred_without_frame
             end
           end
 
