@@ -85,7 +85,7 @@ module Spree
           puts 'address'
           puts 'address'
 
-          if (package.order.address2.include? "pickup: true")
+          if (package.order.ship_address.address2.include? "pickup: true")
             test = 0
           end
 
