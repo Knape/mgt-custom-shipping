@@ -81,7 +81,7 @@ module Spree
 
           puts 'address'
           puts 'address'
-          puts package.order.address2
+          puts package.order.ship_address.address2
           puts 'address'
           puts 'address'
 
