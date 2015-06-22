@@ -3,8 +3,8 @@ module Spree
     module Shipping
       class CustomShipping < Spree::ShippingCalculator
 
-        preference :with_frame,        :string,  default: '0'
-        preference :without_frame,     :string,  default: '0'
+        preference :with_frame,        :decimal,  default: 0
+        preference :without_frame,     :decimal,  default: 0
         # preference :max_item_weight, :decimal, default: 18
         # preference :max_item_width,  :decimal, default: 60
         # preference :max_item_length, :decimal, default: 120
@@ -46,7 +46,7 @@ module Spree
 
         # As order_or_line_items we always get line items, as calculable we have
         # Coupon, ShippingMethod or ShippingRate.
-        def compute(package)
+        def compute_package(package)
 
           line_items = package.order.line_items
           # total_price, total_weight, shipping = compute_total_price, compute_total_weight, 0
@@ -55,9 +55,9 @@ module Spree
 
           line_items.each do |item|
             if (item.variant.sku.length > 4)
-              test = 100
+              test = with_frame
             else
-              test = 50
+              test = without_frame
             end
           end
 
