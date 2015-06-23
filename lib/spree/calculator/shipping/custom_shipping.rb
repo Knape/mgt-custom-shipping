@@ -20,6 +20,8 @@ module Spree
           line_items = package.order.line_items
           # total_price, total_weight, shipping = compute_total_price, compute_total_weight, 0
 
+          puts line_items.inspect
+
           cost = 0
           frames = 0
 
@@ -35,6 +37,11 @@ module Spree
           puts package.order.ship_address.inspect
 
           line_items.each do |item|
+            puts ''
+            puts item.inspect
+            puts ''
+            puts ''
+
             if (item.variant.sku.length <= 4)
               frames +=item.quantity;
             end
@@ -47,6 +54,9 @@ module Spree
           if (package.order.ship_address.address2.include? "pickup: true")
             cost = 0
           end
+          puts ''
+          puts ''
+          puts ''
 
           cost.to_f
         end
