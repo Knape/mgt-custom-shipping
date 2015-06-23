@@ -31,19 +31,28 @@ module Spree
           # total_price, total_weight, shipping = compute_total_price, compute_total_weight, 0
 
           cost = 0
+          puts cost
+          puts 'first'
 
           line_items.each do |item|
             if (item.variant.sku.length > 4)
               cost = self.preferred_with_frame
+              puts cost
+              puts 'if frame'
             else
               cost = self.preferred_without_frame
+              puts cost
+              puts 'in withoutframe'
             end
           end
 
           if (package.order.ship_address.address2.include? "pickup: true")
             cost = 0
+            puts 'if free shipping'
           end
 
+          puts cost
+          puts 'end'
           cost.to_f
         end
 
