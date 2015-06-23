@@ -3,6 +3,8 @@ module MgtCustomShipping
     isolate_namespace Spree
     engine_name 'mgt_custom_shipping'
 
+    puts 'loading plugin'
+
     config.autoload_paths += %W(#{config.root}/lib)
 
     initializer 'spree.register.calculators' do |app|

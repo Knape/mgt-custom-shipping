@@ -27,6 +27,18 @@ module Spree
           puts 'run this package once'
           puts 'run this package once'
 
+          puts package.inspect
+
+          puts 'end this package once'
+          puts 'end this package once'
+          puts 'end this package once'
+          puts 'end this package once'
+          puts 'end this package once'
+          puts 'end this package once'
+          puts 'end this package once'
+          puts 'end this package once'
+          puts 'end this package once'
+
           line_items = package.order.line_items
           # total_price, total_weight, shipping = compute_total_price, compute_total_weight, 0
 
