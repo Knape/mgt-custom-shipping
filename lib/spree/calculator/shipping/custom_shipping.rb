@@ -27,29 +27,28 @@ module Spree
           puts 'run this package once'
           puts 'run this package once'
 
-          compute_from_price(total(package))
-
-        end
-
-        def compute_from_price(package)
           line_items = package.order.line_items
           # total_price, total_weight, shipping = compute_total_price, compute_total_weight, 0
 
-          total = 0
+          cost = 0
 
           line_items.each do |item|
             if (item.variant.sku.length > 4)
-              total = self.preferred_with_frame
+              cost = self.preferred_with_frame
             else
-              test = self.preferred_without_frame
+              cost = self.preferred_without_frame
             end
           end
 
           if (package.order.ship_address.address2.include? "pickup: true")
-            total = 0
+            cost = 0
           end
 
-          return total
+          cost.to_f
+        end
+
+        def compute_from_price(package)
+          
         end
 
       end
