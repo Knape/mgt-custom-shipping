@@ -35,8 +35,8 @@ module Spree
           puts package.order.ship_address.inspect
 
           line_items.each do |item|
-            if (item.variant.sku.length > 4)
-              frames +=1;
+            if (item.variant.sku.length <= 4)
+              frames +=item.quantity;
             end
           end
 
