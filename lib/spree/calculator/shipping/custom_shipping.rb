@@ -6,21 +6,17 @@ module Spree
         preference :with_frame,        :decimal,  default: 0
         preference :without_frame,     :decimal,  default: 0
 
-
         def self.description
           'MGT'
         end
 
-       
-
         # As order_or_line_items we always get line items, as calculable we have
         # Coupon, ShippingMethod or ShippingRate.
         def compute_package(package)
+          puts 'to1!!!'
 
           line_items = package.order.line_items
           # total_price, total_weight, shipping = compute_total_price, compute_total_weight, 0
-
-          puts line_items.inspect
 
           cost = 0
           frames = 0
@@ -33,8 +29,6 @@ module Spree
               cost = (self.preferred_without_frame / 2)
             end
           end
-
-          puts package.order.ship_address.inspect
 
           line_items.each do |item|
             puts ''
@@ -54,9 +48,6 @@ module Spree
           if (package.order.ship_address.address2.include? "pickup: true")
             cost = 0
           end
-          puts ''
-          puts ''
-          puts ''
 
           cost.to_f
         end
