@@ -34,7 +34,7 @@ module Spree
             if (item.variant.sku.length > 4)
               poster_count = 0
               break
-
+            end
 
             if (item.variant.sku.length <= 4)
               poster_count += item.quantity;
