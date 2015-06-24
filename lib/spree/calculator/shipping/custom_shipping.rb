@@ -5,6 +5,7 @@ module Spree
 
         preference :with_frame,        :decimal,  default: 0
         preference :without_frame,     :decimal,  default: 0
+        preference :many_posters,     :decimal,  default: 0
 
         def self.description
           'MGT'
@@ -17,7 +18,7 @@ module Spree
           line_items = package.order.line_items
           
           cost = 0
-          frames = 0
+          poster_count = 0
 
           line_items.each do |item|
             if (item.variant.sku.length > 4)
@@ -29,13 +30,19 @@ module Spree
           end
 
           line_items.each do |item|
+
+            if (item.variant.sku.length > 4)
+              poster_count = 0
+              break
+
+
             if (item.variant.sku.length <= 4)
-              frames +=item.quantity;
+              poster_count += item.quantity;
             end
           end
 
-          if (frames >= 2)
-            cost = 0
+          if (poster_count >= 2)
+            cost = self.preferred_many_posters / 2
           end
 
           if (package.order.ship_address.address2.include? "pickup: true")
