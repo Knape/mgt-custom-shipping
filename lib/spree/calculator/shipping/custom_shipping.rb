@@ -3,9 +3,9 @@ module Spree
     module Shipping
       class CustomShipping < Spree::ShippingCalculator
 
-        preference :with_frame,        :decimal,  default: 0
-        preference :without_frame,     :decimal,  default: 0
-        preference :many_posters,     :decimal,  default: 0
+        preference :with_frame,     :decimal,  default: 0
+        preference :without_frame,  :decimal,  default: 0
+        preference :many_posters,   :decimal,  default: 0
 
         def self.description
           'MGT'
