@@ -13,11 +13,9 @@ module Spree
         # As order_or_line_items we always get line items, as calculable we have
         # Coupon, ShippingMethod or ShippingRate.
         def compute_package(package)
-          puts 'to1!!!'
 
           line_items = package.order.line_items
-          # total_price, total_weight, shipping = compute_total_price, compute_total_weight, 0
-
+          
           cost = 0
           frames = 0
 
@@ -31,11 +29,6 @@ module Spree
           end
 
           line_items.each do |item|
-            puts ''
-            puts item.inspect
-            puts ''
-            puts ''
-
             if (item.variant.sku.length <= 4)
               frames +=item.quantity;
             end
