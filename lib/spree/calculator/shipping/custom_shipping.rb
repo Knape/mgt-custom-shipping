@@ -21,7 +21,7 @@ module Spree
           cost = 0
           poster_count = 0
 
-          if  (line_items.lengt >= 2)
+          if  (line_items.length >= 2)
             split = 2
           end
 
