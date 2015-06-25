@@ -6,6 +6,7 @@ module Spree
         preference :with_frame,     :decimal,  default: 0
         preference :without_frame,  :decimal,  default: 0
         preference :many_posters,   :decimal,  default: 0
+        preference :split,          :decimal,  default: 0
 
         def self.description
           'MGT'
@@ -22,7 +23,7 @@ module Spree
           poster_count = 0
 
           if  (line_items.length >= 2)
-            split = 2
+            split = self.preferred_split
           end
 
           line_items.each do |item|
