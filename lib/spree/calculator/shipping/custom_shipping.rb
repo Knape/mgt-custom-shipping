@@ -6,6 +6,7 @@ module Spree
         preference :with_frame,     :decimal,  default: 0
         preference :without_frame,  :decimal,  default: 0
         preference :many_posters,   :decimal,  default: 0
+        preference :split_base,     :decimal,  default: 0
         preference :split,          :decimal,  default: 0
 
         def self.description
@@ -18,7 +19,8 @@ module Spree
 
           line_items = package.order.line_items
           
-          split = 1
+
+          split = preferred_split_base
           cost = 0
           poster_count = 0
 

@@ -4,4 +4,5 @@ en:
     with_frame: Cost width frame
     without_frame: Cost without frame
     many_posters: Cost when 2 posters or more
+    split_base: split base(dont tuch)
     split: split(dont tuch)
