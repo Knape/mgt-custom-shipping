@@ -31,10 +31,10 @@ module Spree
 
           line_items.each do |item|
             if (item.variant.sku.length > 4)
-              cost = (self.preferred_with_frame / split)
+              cost = (self.preferred_with_frame)
               break
             else
-              cost = (self.preferred_without_frame / split)
+              cost = (self.preferred_without_frame)
             end
           end
 
@@ -51,14 +51,14 @@ module Spree
           end
 
           if (poster_count >= 2)
-            cost = self.preferred_many_posters / split
+            cost = self.preferred_many_posters
           end
 
           if (package.order.ship_address.address2.include? "pickup: true")
             cost = 0
           end
 
-          cost.to_f
+          return cost
         end
 
       end
