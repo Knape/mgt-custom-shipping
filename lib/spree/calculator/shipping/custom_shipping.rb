@@ -3,11 +3,11 @@ module Spree
     module Shipping
       class CustomShipping < Spree::ShippingCalculator
 
-        preference :with_frame,     :integer,  default: 0
-        preference :without_frame,  :integer,  default: 0
-        preference :many_posters,   :integer,  default: 0
-        preference :split_base,     :integer,  default: 0
-        preference :split,          :integer,  default: 0
+        preference :with_frame,     :integer,  default: 10
+        preference :without_frame,  :decimal,  default: 20
+        preference :many_posters,   :decimal,  default: 30
+        preference :split_base,     :decimal,  default: 0
+        preference :split,          :decimal,  default: 0
 
         def self.description
           'MGT'
@@ -58,7 +58,7 @@ module Spree
             cost = 0
           end
 
-          return cost
+          cost.to_f
         end
 
       end
