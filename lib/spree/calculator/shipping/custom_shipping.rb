@@ -19,6 +19,7 @@ module Spree
 
           line_items = package.order.line_items
           
+          puts 'package'
 
           split = preferred_split_base
           cost = 0
