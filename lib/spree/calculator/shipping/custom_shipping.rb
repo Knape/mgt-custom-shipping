@@ -58,7 +58,7 @@ module Spree
             cost = 0
           end
 
-          cost.to_f
+          return cost
         end
 
       end
